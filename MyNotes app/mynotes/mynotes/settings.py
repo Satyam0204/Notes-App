@@ -129,3 +129,10 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+
+
+
+
+# git push token
+# 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
