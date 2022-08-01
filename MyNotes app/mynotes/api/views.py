@@ -54,3 +54,12 @@ def getNote(request,pk):
     notes=Note.objects.get(id=pk)
     serializer=NoteSerializer(notes, many=False)
     return Response(serializer.data)
+
+@api_view(['PUT'])
+def updateNote(request,pk):
+    notes=Note.objects.get(id=pk)
+    serializer=NoteSerializer(instance=notes,data=notes.data, many=False)
+    if serializer.is_Valid():
+        serializer.save()
+
+    return Response(serializer.data)
