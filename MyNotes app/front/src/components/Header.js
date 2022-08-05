@@ -1,9 +1,12 @@
 import React from 'react'
 
+
 const Header = () => {
   return (
     <div>
-      <h1>My Notes</h1>
+
+      <h1>&#9782;  MY NOTES</h1>
+
     </div>
   )
 }

@@ -9,16 +9,28 @@ import { BrowserRouter as Router,Routes, Route } from "react-router-dom";
 
 function App() {
   return (
+    <div className="body">
+
     <Router>
-      <div >
+
+        <div className="header">
+
         <Header/>
+        </div>
+        <div >
+
       <Routes>
+        
+
         <Route exact path='/' element={<NoteListPage/>} />   
         <Route path='notes/:id'   element={<NotePage />} />   
+        
 
       </Routes>
-    </div>
+        </div>
+
     </Router>
+    </div>
   );
 }
 

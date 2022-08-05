@@ -1,3 +1,4 @@
+from urllib import response
 from django.shortcuts import render
 from django.http import JsonResponse
 from rest_framework.response import Response
@@ -57,9 +58,22 @@ def getNote(request,pk):
 
 @api_view(['PUT'])
 def updateNote(request,pk):
+    data=request.data
     notes=Note.objects.get(id=pk)
-    serializer=NoteSerializer(instance=notes,data=notes.data, many=False)
-    if serializer.is_Valid():
+    serializer=NoteSerializer(instance=notes,data=data)
+    if serializer.is_valid():
         serializer.save()
+    return Response(serializer.data)
 
+@api_view(['DELETE'])
+def deleteNote(request,pk):
+    note=Note.objects.get(id=pk)
+    note.delete()
+    return Response("Note was deleted")
+
+@api_view(['POST'])
+def creatNote(request):
+    data=request.data
+    note=Note.objects.create(body=data['body'])
+    serializer = NoteSerializer(note, many=False)
     return Response(serializer.data)

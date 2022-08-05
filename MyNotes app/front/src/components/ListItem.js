@@ -5,10 +5,12 @@ const ListItem = ({note}) => {
  
   return (
     <Link to={`/notes/${note.id}/`}>
+        <p className='listitem' >
 
-      <h4>{note.body}</h4>
+        {note.body}
 
-    </Link>
+          </p>
+        </Link>
   )
 }
 
